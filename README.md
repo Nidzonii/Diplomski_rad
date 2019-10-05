@@ -2,7 +2,7 @@
 
 Softverski alat baziran na komandnoj liniji koji vrši određene modifikacije odnosno transformacije tekstualnih
 datoteka ekstenzije __.txt__ i __.docx__. O samom načinu pokretanja i korišćenja funkcionalnosti samog alata
-opširnije možete proćitati u odeljku *Instrukcije*.
+opširnije možete pročitati u odeljku *Instrukcije*.
 
 # Instalacija 
 
