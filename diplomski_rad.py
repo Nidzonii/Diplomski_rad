@@ -35,15 +35,15 @@ if not args.fajl and (args.jedan or args.dva or args.tri or args.četiri or args
     sys.exit(0)
 
 if args.fajl and args.izlaz and (args.pet or args.šest or args.osam):
-    print("Izabrani fleg -о/--izlaz se ne može primeniti uz izabranu funkciju")
+    print("Izabrani fleg -о/--izlaz se ne može primeniti na izabranu funkciju")
     sys.exit(0)
 
 if args.fajl and args.zameni_sve and not args.devet:
-    print("Izabrani fleg -z/--zamena se ne može primeniti uz izabranu funkciju")
+    print("Izabrani fleg -z/--zamena se može primeniti samo na funkciju -9/--devet")
     sys.exit(0)
 
 if args.fajl and args.ignoriši and not(args.osam or args.devet):
-    print("Izabrani fleg -i/--ignoriši se može primeniti uz funkcije -8/--osam i -9/--devet")
+    print("Izabrani fleg -i/--ignoriši se može primeniti na funkcije -8/--osam i -9/--devet")
     sys.exit(0)
 
 if not args.pomoć and nepoznatiArgumenti:
@@ -104,7 +104,7 @@ if args.fajl and args.devet and args.izlaz:
     if args.zameni_sve:
         fleg_zameni_sve = 'svako'
     if args.ignoriši:
-        fleg.i = 'da'
+        fleg_i = 'da'
     funkcija_devet(args.fajl, args.devet, fleg_zameni_sve, fleg_i, args.izlaz)
 elif args.fajl and args.devet:
     fleg_zameni_sve = 'prvo'
