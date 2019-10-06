@@ -15,7 +15,7 @@ Za konverziju .txt fajla u .pdf format i za spajanje više .pdf fajlova u jednu,
 
 __paps__ -> https://www.systutorials.com/docs/linux/man/1-paps/ 
 
-__ghostscript__ -> https://www.ghostscript.com/
+__ghostscript__ (verzija 9.27)-> https://www.ghostscript.com/
 
 Za konverziju .docx fajlova u .pdf format:
 
@@ -50,11 +50,11 @@ uslužnu funkciju, potrebno je ući u skriptu funkcije.py i u navedenim funkcija
 | python diplomski_rad.py -f ime_fajla -3                        | Uklanja višestruke razmake u tekstu                                    |
 | python diplomski_rad.py -f ime_fajla -4 l/latinica             | Transformiše sve ćirilične reči u tekstu u latinicu                    |
 | python diplomski_rad.py -f ime_fajla -4 ć/ćirilica             | Transformiše sve latinične reči u tekstu u ćirilicu                    |
-| python diplomski_rad.py -f ime_fajla -5                        | Konvertuje ulaznu datoteku u pdf                               |
-| python diplomski_rad.py -6 ulazni_fajlovi.pdf izlazni_fajl.pdf | Spaja navedene ulazne datoteke u izlazni .pdf format                   |
-| python diplomski_rad.py -f ime_fajla -7 distanca               | Proverava da li u tekstu postoje pogrešno napisane reči - opširnije preko komande -p/pomoć | 
+| python diplomski_rad.py -f ime_fajla -5                        | Konvertuje ulazni fajl u pdf                               |
+| python diplomski_rad.py -6 ulazni_fajlovi.pdf izlazni_fajl.pdf | Spaja navedene ulazne fajlove u izlazni .pdf format                   |
+| python diplomski_rad.py -f ime_fajla -7 distanca               | Proverava da li u tekstu postoje pogrešno napisane reči - opširnije preko komande -p/--pomoć | 
 | python diplomksi_rad.py -f ime_fajla -8 brojReči               | Štampa u komandnoj liniji prvih *brojReči* reči koje se najčešće pojavjljuju |
-| python diplomski_rad.py -f ime_fajla -8 brojReči -i            | Slično prethodnoj komandi s tim što se prilikom brojanja reči zanemaruju mala i velika slova |
+| python diplomski_rad.py -f ime_fajla -8 brojReči -i            | Slično prethodnoj komandi s tim što se prilikom brojanja učestanosti reči zanemaruju mala i velika slova |
 | python diplomski_rad.py -f ime_fajla -9 reč novaReč            | Menja reč novom sekvencom novaReč na prvom pronađenom mestu |
 | python diplomski_rad.py -f ime_fajla -9 reč novaReč -i         | Slično prethodnoj komandi s tim što se prilikom zamene sekvence reč zanemaruju mala i velika slova |
 | python diplomski_rad.py -f ime_fajla -9 reč novaReč -z         | Menja reč novom sekvencom novaReč na svakom pronađenom mestu |
