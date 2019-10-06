@@ -15,7 +15,7 @@ def funkcija_jedan(imeFajla, izlazniFajl):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         izmenjeniPodaci.append(podaci[0].upper())
@@ -52,7 +52,7 @@ def funkcija_jedan(imeFajla, izlazniFajl):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         proveraNarednogParagrafa = False
@@ -128,7 +128,7 @@ def funkcija_dva(imeFajla, izlazniFajl):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         for karakter in podaci:
@@ -145,7 +145,7 @@ def funkcija_dva(imeFajla, izlazniFajl):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         brojac = 0
@@ -183,7 +183,7 @@ def funkcija_tri(imeFajla, izlazniFajl):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         izmenjeniPodaci = re.sub(' +', ' ', podaci)
@@ -195,7 +195,7 @@ def funkcija_tri(imeFajla, izlazniFajl):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         brojac = 0
@@ -226,7 +226,7 @@ def funkcija_cetiri(imeFajla, izbor, izlazniFajl):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         for karakter in podaci:
@@ -284,7 +284,7 @@ def funkcija_cetiri(imeFajla, izbor, izlazniFajl):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         brojac = 0
@@ -311,6 +311,7 @@ def funkcija_cetiri(imeFajla, izbor, izlazniFajl):
                                 pass
                     if spajanjeIstihRunova:
                         listaKaraktera = tekstIstogRuna + listaKaraktera
+                        tekstIstogRuna = list()
                         spajanjeIstihRunova = False
                     trenutniRun += 1
                     for karakter in range(len(listaKaraktera)):
@@ -405,7 +406,7 @@ def funkcija_sest(argumenti):
             print('Morate uneti .pdf fajl!')
             return
     if tip_fajla(argumenti[-1]) != 'pdf':
-        print('Izlazni fajl mora biti ekstenzije .pdf')
+        print('Izlazni fajl mora biti ekstenzije .pdf!')
         return
     if platform.system().lower() == 'linux':
         komanda = "gs -q -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=" + argumenti[-1] 
@@ -433,7 +434,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         fajl.close()
@@ -461,8 +462,9 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                     indeksiIReci.append(recnik[pogresnaRec][i] + ' -> indeks: ' + str(indeksiPreporuka[i]))
                 print('Preporuke za reč ' + pogresnaRec + ': ' + str(indeksiIReci))
                 odgovor = int(input('Unesite indeks: '))
-                while type(odgovor) != int and odgovor > len(pogresnaRec) and odgovor > 0:
+                while type(odgovor) != int or odgovor > indeksiPreporuka[-1] or odgovor < 0:
                     print('Potrebno je uneti realan broj koji je manji ili jednak broju ponuđenih reči u listi a veci od nule!')
+                    odgovor = int(input('Unesite indeks: '))
                 podaci = re.sub('\\b' + pogresnaRec + '\\b', recnik[pogresnaRec][odgovor-1], podaci, flags=re.I)
             elif odgovor == 'izlaz':
                 izmenjeniFajl = open(imeFajla, 'w', encoding='utf8')
@@ -476,7 +478,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         podaci = list()
@@ -544,6 +546,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                                 pass  
                         if spajanjeIstihRunova:
                             listaKaraktera = tekstIstogRuna + listaKaraktera
+                            tekstIstogRuna = list()
                             spajanjeIstihRunova = False
                         trenutniRun += 1
                         tekst = ''.join(listaKaraktera)
@@ -577,8 +580,9 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                             pass  
                     if spajanjeIstihRunova:
                         listaKaraktera = tekstIstogRuna + listaKaraktera
+                        tekstIstogRuna = list()
                         spajanjeIstihRunova = False
-                        trenutniRun += 1
+                    trenutniRun += 1
                     tekst = ''.join(listaKaraktera)
                     for rec in parReciZaKorekciju.keys():
                         pronadjeno = re.search('\\b' + rec + '\\b', tekst, flags=re.I)
@@ -604,7 +608,7 @@ def funkcija_osam(imeFajla, brojReci, fleg):
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         fajl.close()
@@ -635,7 +639,7 @@ def funkcija_osam(imeFajla, brojReci, fleg):
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         reci = list()
         for para in fajl.paragraphs:
@@ -675,7 +679,7 @@ def funkcija_devet(imeFajla, argumenti, fleg_zameni_sve, fleg_ignorisi, izlazniF
         try:
             fajl = open(imeFajla, 'r', encoding='utf8')
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         podaci = fajl.read()
         pronadjeno = re.search('\\b' + sekvenca + '\\b', podaci)
@@ -696,7 +700,7 @@ def funkcija_devet(imeFajla, argumenti, fleg_zameni_sve, fleg_ignorisi, izlazniF
         try:
             fajl = docx.Document(imeFajla)
         except:
-            print('ne postoji fajl sa navedenim imenom')
+            print('Uneli ste nepostojeći ili nedozvoljeni fajl!')
             return
         noviFajl = docx.Document()
         brojac = 0
@@ -723,6 +727,7 @@ def funkcija_devet(imeFajla, argumenti, fleg_zameni_sve, fleg_ignorisi, izlazniF
                         pass  
                 if spajanjeIstihRunova:
                     listaKaraktera = tekstIstogRuna + listaKaraktera
+                    tekstIstogRuna = list()
                     spajanjeIstihRunova = False
                 trenutniRun += 1
                 podaci = ''.join(listaKaraktera)

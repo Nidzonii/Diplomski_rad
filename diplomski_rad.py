@@ -8,7 +8,7 @@ pomoc.add_argument("-p", "--pomoć", action='store_true', help="Pruža objašnje
 flegovi = parser.add_argument_group('flegovi')
 flegovi.add_argument("-i", "--ignoriši", action="store_true", help="Kada se pozove kao argument, velika i mala slova će se posmatrati isto. Može se upariti sa funkcijama -8/--osam, -9/--devet")
 flegovi.add_argument("-z", "--zameni_sve", action="store_true", help="Omogućava da se svako/prvo pojavljivanje specificirane reči u tekstu zameni novom sekvencom. Ukoliko se navede kao argument, zameniće se svako pojavljivanje navedene sekvence - u suprotnom će se zameniti samo prva pronađena sekvenca. Može se upariti samo sa funkcijom -9/--devet")
-flegovi.add_argument("-o", "--izlaz", type=str, help="Izlaz će biti novi fajl. Potrebno je navesti ime izlaznog fajla bez navođenja ekstenzije jer će ekstenzija biti jednaka ekstenziji ulaznog fajla. Može se primeniti na svaku funkciju koja vrši modifikaciju fajla - ne može se prmeniti na funkcije -5/--pet, -6/--šest, -8/--osam")
+flegovi.add_argument("-o", "--izlaz", type=str, help="Izlaz će biti novi fajl. Potrebno je navesti ime izlaznog fajla bez navođenja ekstenzije jer će ekstenzija biti jednaka ekstenziji ulaznog fajla. Može se primeniti na svaku funkciju koja vrši modifikaciju fajla - ne može se primeniti na funkcije -5/--pet, -6/--šest, -8/--osam")
 funkcije = parser.add_argument_group('funkcije')
 funkcije.add_argument("-f", "--fajl", type=str, help='Naziv ulaznog fajla')
 funkcije.add_argument("-1", "--jedan", action='store_true', help="Transformacija malih slova u velika gde god je to potrebno - početak rečenice, posle tačke")
@@ -39,7 +39,7 @@ if args.fajl and args.izlaz and (args.pet or args.šest or args.osam):
     sys.exit(0)
 
 if args.fajl and args.zameni_sve and not args.devet:
-    print("Izabrani fleg -z/--zamena se može primeniti samo na funkciju -9/--devet")
+    print("Izabrani fleg -z/--zameni_sve se može primeniti samo na funkciju -9/--devet")
     sys.exit(0)
 
 if args.fajl and args.ignoriši and not(args.osam or args.devet):
