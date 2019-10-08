@@ -462,7 +462,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                     indeksiIReci.append(recnik[pogresnaRec][i] + ' -> indeks: ' + str(indeksiPreporuka[i]))
                 print('Preporuke za reč ' + pogresnaRec + ': ' + str(indeksiIReci))
                 odgovor = int(input('Unesite indeks: '))
-                while type(odgovor) != int or odgovor > indeksiPreporuka[-1] or odgovor < 0:
+                while type(odgovor) != int or odgovor > indeksiPreporuka[-1] or odgovor < 1:
                     print('Potrebno je uneti realan broj koji je manji ili jednak broju ponuđenih reči u listi a veci od nule!')
                     odgovor = int(input('Unesite indeks: '))
                 podaci = re.sub('\\b' + pogresnaRec + '\\b', recnik[pogresnaRec][odgovor-1], podaci, flags=re.I)
@@ -523,7 +523,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                     indeksiIReci.append(recnik[pogresnaRec][i] + ' -> indeks: ' + str(indeksiPreporuka[i]))
                 print('Preporuke za reč ' + pogresnaRec + ': ' + str(indeksiIReci))
                 odgovor = int(input('Unesite indeks: '))
-                while type(odgovor) != int or odgovor > indeksiPreporuka[-1] or odgovor < 0:
+                while type(odgovor) != int or odgovor > indeksiPreporuka[-1] or odgovor < 1:
                     print('Potrebno je uneti realan broj koji je manji ili jednak broju ponuđenih reči u listi a veci od nule!')
                     odgovor = int(input('Unesite indeks: '))
                 parReciZaKorekciju[pogresnaRec] = recnik[pogresnaRec][odgovor-1]
@@ -560,6 +560,8 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                     paragraf.alignment = para.alignment
                     brojac += 1
                 noviFajl.save(izlazniFajl)
+                komanda = 'python3 diplomski_rad.py -f ' + imeFajla + ' -1'
+                os.system(komanda)
                 return
             elif odgovor == 'izlaz' and not baremJednaIspitanaRec:
                 return
@@ -594,6 +596,8 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                 paragraf.alignment = para.alignment
                 brojac += 1
             noviFajl.save(izlazniFajl)
+            komanda = 'python3 diplomski_rad.py -f ' + imeFajla + ' -1'
+            os.system(komanda)
             return
     else:
         print('Funkcija prima kao ulaz fajlove sa ekstenzijom .txt i .docx')
