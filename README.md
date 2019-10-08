@@ -40,7 +40,7 @@ tebele će se izgubiti. Rešenje za taj problem jeste da se modifikovana verzija
 Program se koristi pokretanjem skripte diplomski_rad.py. Ukoliko korisnik na svom sistemu ima instaliranu samo verziju >= 3.0 programskog jezika Python, program se pokreće
 komandom *python diplomksi_rad.py ...* gde tri tačke predstavljaju funkcije koje se mogu primeniti. Ukoliko korisnik ima instalirane obe verzije Pythona
 i ukoliko je verzija 2 primarna, pokretanje se vrši komandom *python3 diplomski_rad.py ...*. Pošto funkcije sedam i osam u skripti funkcije.py koriste funkciju dva kao 
-uslužnu funkciju, potrebno je ući u skriptu funkcije.py i u navedenim funkcijama podesiti komandu na *python/python3 ...*.
+uslužnu funkciju a funkcija sedam koristi i funkciju jedan kao uslužnu, potrebno je ući u skriptu funkcije.py i u navedenim funkcijama podesiti komandu na *python/python3 ...*.
 
 | Instrukcija                                                    |      Objašnjenje instrukcije     |
 |:---------------------------------------------------------------|:--------------------------------:|
