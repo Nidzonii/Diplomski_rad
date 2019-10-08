@@ -560,7 +560,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                     paragraf.alignment = para.alignment
                     brojac += 1
                 noviFajl.save(izlazniFajl)
-                komanda = 'python3 diplomski_rad.py -f ' + imeFajla + ' -1'
+                komanda = 'python3 diplomski_rad.py -f ' + izlazniFajl + ' -1'
                 os.system(komanda)
                 return
             elif odgovor == 'izlaz' and not baremJednaIspitanaRec:
@@ -596,7 +596,7 @@ def funkcija_sedam(imeFajla, distanca, izlazniFajl):
                 paragraf.alignment = para.alignment
                 brojac += 1
             noviFajl.save(izlazniFajl)
-            komanda = 'python3 diplomski_rad.py -f ' + imeFajla + ' -1'
+            komanda = 'python3 diplomski_rad.py -f ' + izlazniFajl + ' -1'
             os.system(komanda)
             return
     else:
